@@ -13,7 +13,7 @@ include('../components/body.php');
 
 <section class="overflow-x-hidden md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
     <section class="relative py-7.5 pt-12">
-        <h1 class="krona uppercase bg-white lg:ml-12 px-5 inline z-20 text-2xl">
+        <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 text-2xl">
             student information
         </h1>
         <hr class="absolute z-[-1] w-full top-17" />
@@ -124,7 +124,7 @@ include('../components/body.php');
 
     <!-- navvvvvvvvvvv -->
     <header
-        class="bg-primary flex krona text-3xl justify-between px-7 py-4.5 items-center text-white md:hidden">
+        class="bg-primary flex poppins text-3xl justify-between px-7 py-4.5 items-center text-white md:hidden">
         <img
             id="home-btn"
             class="size-12 cursor-pointer"
@@ -145,7 +145,7 @@ include('../components/body.php');
         <main
             class="grid text-white h-[70%] grid-rows-[100px_1fr_60px] md:h-dvh ">
             <section
-                class="row-start-1 invisible md:visible cursor-pointer shadow-2xl bg-secondary flex items-center justify-center text-2xl krona">
+                class="row-start-1 invisible md:visible cursor-pointer shadow-2xl bg-secondary flex items-center justify-center text-2xl poppins">
                 <img
                     class="md:block size-12 lg:hidden"
                     src="../assets/icons/school-icon.svg"
@@ -378,7 +378,7 @@ include('../components/body.php');
             <!--form for STUDENT MEDICAL HISTORY ........ -->
             <section class="relative py-7.5 pt-12">
 
-                <h1 class="krona uppercase bg-white lg:ml-12 px-5 inline z-20 md:text-lg">
+                <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 md:text-lg">
                     MEDICAL HISTORY
                 </h1>
                 <hr class="absolute z-[-1] w-full top-15" />

@@ -39,7 +39,7 @@ if (!isset($_SESSION['username'])) {
 
 <!-- navvvvvvvvvvv -->
 <header
-    class="bg-primary flex krona text-3xl justify-between px-7 py-4.5 items-center text-white md:hidden">
+    class="bg-primary flex poppins text-3xl justify-between px-7 py-4.5 items-center text-white md:hidden">
     <img
         id="home-btn"
         class="size-12 cursor-pointer"
@@ -60,7 +60,7 @@ if (!isset($_SESSION['username'])) {
     <main
         class="grid text-white h-[70%] grid-rows-[100px_1fr_60px] md:h-dvh ">
         <section
-            class="row-start-1 invisible md:visible cursor-pointer shadow-2xl bg-secondary flex items-center justify-center text-2xl krona">
+            class="row-start-1 invisible md:visible cursor-pointer shadow-2xl bg-secondary flex items-center justify-center text-2xl poppins">
             <img
                 class="md:block size-12 lg:hidden"
                 src="../assets/icons/school-icon.svg"

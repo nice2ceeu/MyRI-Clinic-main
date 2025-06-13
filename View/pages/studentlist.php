@@ -13,7 +13,7 @@ include('../components/navbar.php');
 
 <section class="md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82 uppercase">
   <section class="relative mt-10">
-    <h1 class="krona text-3xl inline px-5 bg-white z-[10] ml-10">
+    <h1 class="poppins text-3xl inline px-5 bg-white z-[10] ml-10">
       Student Forms list
     </h1>
     <hr class="absolute w-full top-[20px]  z-[-1]" />
@@ -34,8 +34,6 @@ include('../components/navbar.php');
         type="text"
         required />
     </section>
-
-
 
     <button
       action="submit"

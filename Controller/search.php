@@ -72,7 +72,7 @@
             class='text-left [&>tr]:odd:bg-[#a8a8a829] [&>tr>td]:px-4 [&>tr>td]:py-4.5'>
 
         <?php
-        
+
                 include('../config/database.php');
                 $fullname = $_POST['fullname'];
                 $name = explode(',', $fullname);

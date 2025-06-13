@@ -74,8 +74,6 @@ document.addEventListener("click", (e) => {
       hospitalize.classList.add("opacity-30");
     }
   }
-
-  
 });
 
 const gender = document.getElementById("gender");

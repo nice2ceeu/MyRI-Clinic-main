@@ -15,7 +15,7 @@ include('../components/navbar.php');
 
 <section class="overflow-x-hidden md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
   <section class="relative py-7.5 pt-12">
-    <h1 class="krona uppercase bg-white lg:ml-12 px-5 inline z-20 text-2xl">
+    <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 text-2xl">
       student information
     </h1>
     <hr class="absolute z-[-1] w-full top-17" />
@@ -292,7 +292,7 @@ include('../components/navbar.php');
       <!--form for STUDENT MEDICAL HISTORY ........ -->
       <section class="relative py-7.5 pt-12">
 
-        <h1 class="krona uppercase bg-white lg:ml-12 px-5 inline z-20 md:text-lg">
+        <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 md:text-lg">
           MEDICAL HISTORY
         </h1>
         <hr class="absolute z-[-1] w-full top-15" />

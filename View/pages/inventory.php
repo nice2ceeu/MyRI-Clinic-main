@@ -15,7 +15,7 @@ include('../components/navbar.php');
 <section class="overflow-x-hidden md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82 px-5">
 
     <section class="relative py-7.5 pt-12">
-        <h1 class="krona uppercase bg-white lg:ml-12 px-5 inline z-20 text-3xl">
+        <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 text-3xl">
             Medical Inventory
         </h1>
         <hr class="absolute z-[-1] w-full top-17" />
@@ -153,7 +153,7 @@ include('../components/navbar.php');
     </table>
     <br>
 
-    <h1 class="krona uppercase bg-white lg:ml-12 px-5 inline z-20 text-3xl">CONSUMED</h1>
+    <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 text-3xl">CONSUMED</h1>
     <br>
     <hr>
     <table class="w-full poppins uppercase">

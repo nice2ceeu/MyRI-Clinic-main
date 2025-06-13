@@ -13,7 +13,7 @@
   },
   "scripts": {
     "format": "prettier --write .",
-    "dev": "npx @tailwindcss/cli -i ./view/style/index.css -o ./view/style/output.css --watch",
+    "css": "npx @tailwindcss/cli -i ./view/style/index.css -o ./view/style/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

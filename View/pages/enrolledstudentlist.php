@@ -9,36 +9,46 @@ if (!isset($_SESSION['username'])) {
 
 <?php
 include('../components/body.php');
-
+include('../components/navbar.php');
 ?>
 
-<main class="uppercase mt-22 px-8.5">
-
-    <form style="border: 1px solid;" action="../../Controller//uploadStudent.php" method="POST" enctype="multipart/form-data">
-        <h1>UPLOADING STUDENT's RECORDS</h1>
-
-        Sheet must contains (col count) column <br>
-        <p>EXAMPLE <br>
-        <table style="border:1px solid">
-            <tr style="border:1px solid">
-                <th style="border:1px solid">firstname</th>
-                <th style="border:1px solid">lastname</th>
-                <th style="border:1px solid">LRN</th>
+<main class="md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82 px-8.5">
+    <form class="border-dotted relative border-3 border-[#8080808e] rounded-lg  flex flex-col items-center justify-between p-5  " action="../../Controller//uploadStudent.php" method="POST" enctype="multipart/form-data">
+        <table class="opacity-70 w-full z-[-1] uppercase poppins mb-10">
+            <tr class="border-1">
+                <th class="text-sm" colspan="4"> excel must contains</th>
             </tr>
-            <tr>
-                <td style="border:1px solid">Juan</td>
-                <td style="border:1px solid">Dela Cruz</td>
-                <td style="border:1px solid">0001</td>
+            <tr class="[&>th]:border-1">
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>LRN</th>
+            </tr>
+            <tr class="text-center [&>td]:border-1">
+                <td>Juan</td>
+                <td>Dela Cruz</td>
+                <td>11 Digit No.</td>
             </tr>
         </table>
-        </p>
-        <input type="file" name="file" required>
+        <img class="size-7 opacity-70" src="../assets/icons/upload-icon.svg" alt="upload-icon" />
+        <div class="h-full w-full  absolute">
+            <label for="file">
+                <div class="flex flex-col items-center pt-40">
+                    <h1 class="font-semibold text-2xl">Choose a File</h1>
+                    <h6 class="opacity-80 text-sm">XLS, XLSX, XLSM, XLTX and XLTM</h6>
+                </div>
+                <input class="absolute opacity-0 top-[-20px] focus:opacity-0 h-full w-full" id="file" type="file" name="file" required>
+            </label>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
         <button
-            class="bg-primary poppins   mt-5 w-1/3 justify-center cursor-pointer text-white px-5 py-3 flex gap-x-3 rounded-lg"
+            class="poppins z-10 mt-5 w-1/3 justify-center cursor-pointer border-1 px-5 py-3 flex gap-x-3 rounded-lg"
             type='submit' name="upload">Upload</button>
     </form>
 
-    <table class="w-full poppins">
+    <table class="w-full poppins ">
         <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
             <tr class="">
 
@@ -52,13 +62,8 @@ include('../components/body.php');
         <tbody
             class="text-left [&>tr]:odd:bg-[#a8a8a829] [&>tr>td]:px-4 [&>tr>td]:py-4.5">
 
-
             <body>
-
-
                 <?php
-
-
                 include("../../config/database.php");
                 try {
                     $query = "SELECT * FROM admin where user_role = 'student' order by lastname asc";

@@ -1,6 +1,5 @@
 <?php
 include('../components/body.php');
-
 ?>
 <main class="uppercase mt-22 px-8.5">
   <table class="w-full poppins">
