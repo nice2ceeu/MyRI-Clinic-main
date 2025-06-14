@@ -12,11 +12,12 @@ include('../components/navbar.php');
 ?>
 
 <section class="md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82 uppercase">
-  <section class="relative mt-10">
-    <h1 class="poppins text-3xl inline px-5 bg-white z-[10] ml-10">
-      Student Forms list
+
+  <section class="relative mt-5 text-[max(3vw,2rem)] ">
+    <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
+      Student Form's
     </h1>
-    <hr class="absolute w-full top-[20px]  z-[-1]" />
+    <hr class="absolute z-[-1] text-[#acacac] top-1/2 w-full" />
   </section>
 
   <!-- FORM SEARCH SECTION FOR USERS  -->
@@ -44,9 +45,14 @@ include('../components/navbar.php');
       <img src="../assets/icons/search-icon.svg" />
     </button>
 
-    <a href="view-download.php">My downloads</a>
+    <a class="bg-[#06118e] text-nowrap text-white poppins uppercase flex justify-evenly gap-2.5 px-10 cursor-pointer py-2.5 rounded-lg"
+      href="view-download.php">My downloads
+      <img src="../assets/icons/my-download-icon.svg" alt="my-download-icon">
+    </a>
   </form>
-  <hr class="w-full z-[-1] mt-[80px]" />
+  <section class="relative mt-12">
+    <hr class="absolute text-[#acacac] z-[-1] w-full bottom-0" />
+  </section>
 
   <?php
 

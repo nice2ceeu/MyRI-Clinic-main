@@ -1,40 +1,10 @@
 <?php
 include("body.php")
 ?>
-<style>
-    /* Background overlay */
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
-        display: none;
-        justify-content: center;
-        align-items: center;
-    }
 
-    /* Popup with-medicine */
-    .popup {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        width: 500px;
-        text-align: center;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
 
-    .close-btn {
-        cursor: pointer;
-        margin-top: 10px;
-        color: red;
-    }
-</style>
-<main
-
-    class="uppercase mt-22 px-8.5 ">
-    <table class="w-full poppins">
+<main class="poppinsmt-22 px-8.5 ">
+    <table class="w-full  uppercase  poppins">
         <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
             <tr>
                 <th>ID</th>
@@ -83,7 +53,7 @@ include("body.php")
                     }
                 } else {
                     echo "<tr '>";
-                    echo "<td colspan='9' class='text-center bg-[#ffc5c541]'>" . "No Current Patient." . "</td>";
+                    echo "<td colspan='9' class='text-center bg-[#d4d4d40c]'>" . "No Current Patient." . "</td>";
                     echo "</tr>";
                 }
             } catch (mysqli_sql_exception $e) {
@@ -101,78 +71,81 @@ include("body.php")
                     $medOptions .= "<option value='$med'>$med</option>";
                 }
             }
-
-            echo "
-              <!-- Popup Overlay -->
-<div class='overlay' id='popupOverlay'>
-    <div class='popup'>
-        <form action='../../Controller/release.php' method='POST'>
-            With medicine? <br>
-
-            <input type='radio' id='with-medicine' name='treatment' value='yes' onclick='toggleMedSection()' required>
-            <label for='with-medicine'>Medicinal Treatment</label>
-
-            <input type='radio' id='no-medicine' name='treatment' value='no' onclick='toggleMedSection()' required>
-            <label for='no-medicine'>No Medicine Used</label>
-
-            <div id='with-medicine-treatment' style='display: none;'>
-                <label>Medicine Used</label>
-                <select name='medicine' id='medicine' class='border-1 p-3.5 w-full'>
-    <option disabled selected value='' class='opacity-40'>Select Medicine</option>
-    $medOptions
-</select>
-
-
-
-                <label>Medicine Quantity</label>
-                <input type='number' name='medicine_qty'>
-            </div>
-
-            <div id='without-medicine-treatment' style='display: none;'>
-                <label for='physical-treatment'>PHYSICAL TREATMENT</label>
-                <input type='text' id='physical-treatment' name='physical-treatment'>
-            </div>
-
-            <input type='hidden' id='id' name='user_id'>
-
-            <div class='close-btn' onclick='hidePopup()'>Cancel</div>
-            <button type='submit' name='release'><span style='color:green;'>RELEASE</span></button>
-        </form>
-    </div>
-</div>
-
-" .
-
-
-                "<script>
-                    function toggleMedSection() {
-                        const withMedSection = document.getElementById('with-medicine-treatment');
-                        const withoutMedSection = document.getElementById('without-medicine-treatment');
-                        const isWithMed = document.getElementById('with-medicine').checked;
-                        const isWithoutMed = document.getElementById('no-medicine').checked;
-
-                        withMedSection.style.display = isWithMed ? 'block' : 'none';
-                        withoutMedSection.style.display = isWithoutMed ? 'block' : 'none';
-                    }
-
-                    function showPopup(id) {
-                        document.getElementById('popupOverlay').style.display = 'flex';
-                        document.getElementById('id').value = id;
-                    }
-
-                    function hidePopup() {
-                        document.getElementById('popupOverlay').style.display = 'none';
-                    }
-
-                    window.onload = function() {
-                        toggleMedSection();
-                    };
-                </script>"
-
             ?>
 
+            <?php echo "           <!-- Popup Overlay -->
+            <div class='backdrop-blur-xs uppercase fixed h-dvh w-[90%] justify-center items-center p-5 top-0 right-0 hidden' id='popupOverlay'>
 
 
+                <div class='bg-white shadow-xl flex relative flex-col gap-5 p-5 w-[70%] items-center  size-100 '>
+
+                    <h1 class='poppins  font-[500] bg-white text-nowrap mt-5 text-[min(4.5vw,2rem)]'>
+                        Type of treatment given
+                    </h1>
+
+                    <img class='absolute right-1.5 top-1.5 invert cursor-pointer' onclick='hidePopup()' src='../assets/icons/close-icon.svg'>
+
+                    <form class='text-nowrap relative' action='../../Controller/release.php' method='POST'>
+                        <div class='flex items-center gap-2'>
+                            <input class='appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500' type='radio' id='with-medicine' name='treatment' value='yes' onclick='toggleMedSection()' required>
+                            <label for='with-medicine'>Medicinal Treatment</label>
+                            <input class='appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500' type='radio' id='no-medicine' name='treatment' value='no' onclick='toggleMedSection()' required>
+                            <label for='no-medicine'>No Medicine Used</label>
+                        </div>
+
+                        <div class='relative flex w-2/3 gap-5' id='with-medicine-treatment'>
+                            <label class='absolute -top-1 left-1.5 inline leading-3 bg-white px-5'>Medicine Used</label>
+                            <select name='medicine' id='medicine' class='border-1 p-3.5 rounded-lg w-full'>
+                                <option disabled selected value='' class='opacity-50'>
+                                    Select Medicine
+                                </option>
+                                $medOptions
+                            </select>
+                            <div class='mt-5  relative'>
+                                <label class='absolute -top-1 left-1.5 inline leading-3 bg-white px-5'>Medicine Quantity </label>
+                                <input class='border-1 px-5 py-3 rounded-lg w-full' type='number' name='medicine_qty'>
+                            </div>
+                        </div>
+                        <div class='relative w-2/3' id='without-medicine-treatment' style='display: none;'>
+                            <label class='absolute -top-1 left-1.5 inline leading-3 bg-white px-3' for='physical-treatment'>PHYSICAL TREATMENT</label>
+                            <input class='border-1 px-5 py-3 rounded-lg w-full' type='text' id='physical-treatment' name='physical-treatment'>
+                        </div>
+                        <input type='hidden' id='id' name='user_id'>
+                        <div class='flex gap-5'>
+                            <button class='flex px-5 py-3 gap-5 rounded-lg cursor-pointer bg-green-500 text-white  justify-evenly' type='submit' name='release'>RELEASE <img class='invert' src='../assets/icons/release-icon.svg'></button>
+
+                            <div class='flex px-5 py-3 gap-5 rounded-lg cursor-pointer bg-red-500 text-white  justify-evenly' onclick='hidePopup()'>Cancel <img class='' src='../assets/icons/close-icon.svg'></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            " .
+                "<script>
+                function toggleMedSection() {
+                    const withMedSection = document.getElementById('with-medicine-treatment');
+                    const withoutMedSection = document.getElementById('without-medicine-treatment');
+                    const isWithMed = document.getElementById('with-medicine').checked;
+                    const isWithoutMed = document.getElementById('no-medicine').checked;
+
+                    withMedSection.style.display = isWithMed ? 'block' : 'none';
+                    withoutMedSection.style.display = isWithoutMed ? 'block' : 'none';
+                }
+
+                function showPopup(id) {
+                    document.getElementById('popupOverlay').style.display = 'flex';
+                    document.getElementById('id').value = id;
+                }
+
+                function hidePopup() {
+                    document.getElementById('popupOverlay').style.display = 'none';
+                }
+
+                window.onload = function() {
+                    toggleMedSection();
+                };
+            </script>"
+
+            ?>
         </tbody>
     </table>
 </main>

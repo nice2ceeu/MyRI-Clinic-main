@@ -12,14 +12,12 @@ if (!isset($_SESSION['username'])) {
 include('../components/body.php');
 include('../components/navbar.php');
 ?>
-<section
-
-    class="md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
-    <section class="relative py-7.5 pt-12">
-        <h1 class="poppins uppercase bg-white ml-12 px-5 inline z-20 text-4xl">
-            Current Patients
+<section class="md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
+    <section class="relative mt-5 text-[max(3vw,2rem)] ">
+        <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
+            Current Patient's
         </h1>
-        <hr class="absolute z-[-1] w-full top-17" />
+        <hr class="absolute z-[-1] text-[#acacac] top-1/2 w-full" />
     </section>
 
 
@@ -27,7 +25,7 @@ include('../components/navbar.php');
     <form
         action="../../Controller/search.php"
         method="POST"
-        class="px-8.5 gap-3.5 uppercase flex justify-center flex-wrap lg:flex-nowrap min-[200px]:w-[90%]">
+        class="px-8.5 mt-5 gap-3.5 uppercase flex justify-center flex-wrap lg:flex-nowrap min-[200px]:w-[90%]">
 
         <!-- name of student  -->
 
@@ -64,8 +62,8 @@ include('../components/navbar.php');
 
     <!--  -->
     <!--  -->
-    <section class="relative py-7.5 mt-5">
-        <hr class="absolute z-[-1] w-full bottom-0" />
+    <section class="relative mt-12">
+        <hr class="absolute text-[#acacac] z-[-1] w-full bottom-0" />
     </section>
     <!--  -->
     <!--  -->

@@ -25,8 +25,6 @@
     --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
-    --text-5xl: 3rem;
-    --text-5xl--line-height: 1;
     --text-7xl: 4.5rem;
     --text-7xl--line-height: 1;
     --font-weight-semibold: 600;
@@ -715,6 +713,9 @@
   }
   .text-\[100px\] {
     font-size: 100px;
+  }
+  .text-\[1000px\] {
+    font-size: 1000px;
   }
   .leading-1 {
     --tw-leading: calc(var(--spacing) * 1);

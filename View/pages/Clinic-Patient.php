@@ -11,26 +11,23 @@ if (!isset($_SESSION['username'])) {
 include('../components/body.php');
 include('../components/navbar.php');
 ?>
-<section
+<section class="md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
 
-  class="md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
-  <section class="relative py-7.5 pt-12">
-    <h1 class="poppins uppercase font-semibold bg-white ml-12 px-5 inline z-20 text-2xl">
+  <section class="relative mt-5 text-[max(3vw,2rem)] ">
+    <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
       Today's Patient
     </h1>
-    <hr class="absolute z-[-1] w-full top-17" />
+    <hr class="absolute z-[-1] text-[#acacac] top-1/2 w-full" />
   </section>
-
-
   <!-- visitor form  -->
   <form
     action="../../Controller/addvisitor.php"
     method="POST"
-    class="px-8.5 gap-3.5 uppercase flex justify-center flex-wrap lg:flex-nowrap min-[200px]:w-[90%]">
+    class="px-8.5 mt-5 gap-3.5 uppercase flex justify-center flex-wrap lg:flex-nowrap min-[200px]:w-[90%]">
 
     <!-- name of student  -->
 
-    <section class="relative w-2/5 grow-1">
+    <section class="relative  w-2/5 grow-1">
       <label
 
         id="label"
@@ -49,7 +46,7 @@ include('../components/navbar.php');
       <label
         id="label"
         class="absolute text-nowrap inline top-0 bg-white ml-2 px-1 leading-1"
-        for="last">Last</label>
+        for="last">Last Name</label>
 
       <input
         required
@@ -112,8 +109,6 @@ include('../components/navbar.php');
 
     </section>
 
-
-
     <!-- submit button  -->
     <section
       class="poppins text-white bg-primary rounded-lg relative cursor-pointer">
@@ -128,8 +123,8 @@ include('../components/navbar.php');
 
   <!--  -->
   <!--  -->
-  <section class="relative py-7.5 mt-5">
-    <hr class="absolute z-[-1] w-full bottom-0" />
+  <section class="relative mt-12">
+    <hr class="absolute text-[#acacac] z-[-1] w-full bottom-0" />
   </section>
   <!--  -->
   <!--  -->

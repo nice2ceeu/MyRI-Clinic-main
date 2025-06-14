@@ -12,14 +12,16 @@ include('../components/body.php');
 include('../components/navbar.php');
 ?>
 
-<section class="overflow-x-hidden md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82 px-5">
+<section class="md:sm:ml-24 relative lg:ml-72 md:h-dvh xl:lg:ml-82 overflow-x-hidden uppercase">
 
-    <section class="relative py-7.5 pt-12">
-        <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 text-3xl">
-            Medical Inventory
+
+    <section class="relative mt-5 text-[max(3vw,2rem)] ">
+        <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
+            Medicine Inventory
         </h1>
-        <hr class="absolute z-[-1] w-full top-17" />
-
+        <hr class="absolute z-[-1] text-[#acacac] top-1/2 w-full" />
+    </section>
+    <section>
         <form
             action="../../Controller/addmeds.php"
             method="POST"
@@ -79,9 +81,20 @@ include('../components/navbar.php');
                     <img class src="../assets/icons/check-icon.svg" alt="" />
                 </button>
             </section>
-        </form>
-        <hr>
 
+            <section
+                class="poppins text-white bg-primary rounded-lg relative cursor-pointer">
+                <button
+                    id="view-comsume"
+                    class="uppercase w-full py-2.5 px-9 flex gap-5 items-center justify-evenly cursor-pointer">
+                    <p class="text-nowrap">view comsume</p>
+                    <img class src="../assets/icons/view-icon.svg" alt="" />
+                </button>
+            </section>
+        </form>
+        <section class="relative mt-12">
+            <hr class="absolute text-[#acacac] z-[-1] w-full bottom-0" />
+        </section>
     </section>
 
     <table class="w-full poppins uppercase">
@@ -151,56 +164,100 @@ include('../components/navbar.php');
 
         </tbody>
     </table>
-    <br>
+    <div id="blur" class="fixed  h-full backdrop-blur-xs top-[-20px] bg-white/30 z-0 w-full"></div>
 
-    <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 text-3xl">CONSUMED</h1>
-    <br>
-    <hr>
-    <table class="w-full poppins uppercase">
-        <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
-            <tr>
-                <th>Med ID</th>
-                <th>medicine name</th>
-                <th>quantity</th>
-                <th>Last Date of Use</th>
+    <div id="consumed-medicine" class="absolute top-1/4 w-[80%] right-1/8 shadow-xl z-10 p-5   bg-white">
+        <img id="close" class="invert absolute top-2  right-2 cursor-pointer" src="../assets/icons/close-icon.svg" alt="">
+        <section class=" relative mt-5 text-[min(4vw,2rem)] ">
+            <h1 class=" poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
+                Consumed medicine
+            </h1>
+            <hr class=" absolute z-[-1] text-[#acacac] top-1/2 w-full" />
+        </section>
+        <table class="w-full poppins uppercase mt-10">
+            <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-12">
+                <tr>
+                    <th>Med ID</th>
+                    <th>medicine name</th>
+                    <th>quantity</th>
+                    <th>Last Date of Use</th>
+                </tr>
+            </thead>
+            <tbody class="text-left [&>tr]:odd:bg-[#a8a8a829] [&>tr>td]:px-4 [&>tr>td]:py-4.5">
+                <?php
+                include('../../config/database.php');
+                $today = date("Y-m-d");
+                try {
+                    $query = "SELECT * FROM used_meds order by Medicine_Name asc";
+                    $result = $conn->query($query);
+                    if ($result->num_rows > 0) {
 
-
-            </tr>
-        </thead>
-        <tbody class="text-left [&>tr]:odd:bg-[#a8a8a829] [&>tr>td]:px-4 [&>tr>td]:py-4.5">
-            <?php
-            include('../../config/database.php');
-            $today = date("Y-m-d");
-            try {
-                $query = "SELECT * FROM used_meds order by Medicine_Name asc";
-                $result = $conn->query($query);
-                if ($result->num_rows > 0) {
-
-                    while ($row = $result->fetch_assoc()) {
-                        $_id = htmlspecialchars($row['id']);
+                        while ($row = $result->fetch_assoc()) {
+                            $_id = htmlspecialchars($row['id']);
+                            echo "<tr>";
+                            echo "<td>" . $_id . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Medicine_Name']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Med_Quantity']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Date_Consumed']) . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
                         echo "<tr>";
-                        echo "<td>" . $_id . "</td>";
-                        echo "<td>" . htmlspecialchars($row['Medicine_Name']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['Med_Quantity']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['Date_Consumed']) . "</td>";
+                        echo "<td colspan='9' class='text-center bg-[#ffc5c541]'>" . "No Medicine Found." . "</td>";
                         echo "</tr>";
                     }
-                } else {
-                    echo "<tr>";
-                    echo "<td colspan='9' class='text-center bg-[#ffc5c541]'>" . "No Medicine Found." . "</td>";
-                    echo "</tr>";
+                } catch (mysqli_sql_exception $e) {
+                    echo "Error: " . $e->getMessage();
                 }
-            } catch (mysqli_sql_exception $e) {
-                echo "Error: " . $e->getMessage();
-            }
 
-            ?>
+                ?>
 
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
 </section>
 
 </body>
+<script>
+    const view = document.getElementById("view-comsume")
+    const container = document.getElementById("consumed-medicine")
+    const blur = document.getElementById("blur")
+    const close = document.getElementById("close")
+    let click = false
+    container.classList.add("hidden")
+    blur.classList.add("hidden")
+
+    view.addEventListener("click", (e) => {
+        e.preventDefault()
+        if (!click) {
+            container.classList.remove("hidden")
+            blur.classList.remove("hidden")
+            click = true
+        } else {
+            container.classList.add("hidden")
+            blur.classList.add("hidden")
+            click = false
+        }
+    })
+
+
+
+
+
+    close.addEventListener("click", () => {
+
+        if (!click) {
+            container.classList.remove("hidden")
+            blur.classList.remove("hidden")
+            click = true
+        } else {
+            container.classList.add("hidden")
+            blur.classList.add("hidden")
+            click = false
+        }
+    })
+</script>
 
 </html>
