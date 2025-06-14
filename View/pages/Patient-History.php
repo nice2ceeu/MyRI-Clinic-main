@@ -15,7 +15,7 @@ include('../components/navbar.php');
 <section class="md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
   <section class="relative mt-5 text-[max(3vw,2rem)] ">
     <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
-      Current Patient's
+      Visitor History
     </h1>
     <hr class="absolute z-[-1] text-[#acacac] top-1/2 w-full" />
   </section>
@@ -69,5 +69,9 @@ include('../components/navbar.php');
   ?>
 </section>
 </body>
+
+<script>
+  sessionStorage.setItem("lastPage", window.location.href);
+</script>
 
 </html>

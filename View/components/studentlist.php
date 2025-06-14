@@ -93,17 +93,17 @@ include('../components/body.php');
                 echo "<td>" . htmlspecialchars($row['guardian']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['contact']) . "</td>";
 
-                echo   "<td><form action='../pages/medicalinformation.php' method='POST'>
+                echo   "<td><form  action='../pages/medicalinformation.php' method='POST'>
                         
                         <input type='hidden' name='id' value='" . $_id . "'>
-                        <button type='submit' name='view-form'><span style='color: green;'>View Form</span></button>
+                        <button class='poppins uppercase flex gap-2 justify-evenly cursor-pointer' type='submit' name='view-form'><span '>View Form</span><img class='opacity-50 invert' src='../assets/icons/medicalform-icon.svg'></button>
                         
                         </form>
                         </td>";
                 echo   "<td><form action='../../Controller/studenthistory.php' method='POST'>
                         <input type='hidden' name='fname' value='" . $_firstname . "'>
                         <input type='hidden' name='lname' value='" . $_lastname . "'>
-                        <button type='submit' name='view-history'><span style='color: blue;'>View History</span></button>
+                        <button class='poppins uppercase flex gap-2 justify-evenly cursor-pointer' type='submit' name='view-history'><span '>View History</span><img class='opacity-50 invert' src='../assets/icons/history-icon.svg'></button>
                         </form>
                         </td>";
 
@@ -128,3 +128,7 @@ include('../components/body.php');
     </tbody>
   </table>
 </main>
+
+<script>
+  sessionStorage.setItem("lastPage", window.location.href);
+</script>

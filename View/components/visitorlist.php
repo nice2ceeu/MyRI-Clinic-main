@@ -3,7 +3,7 @@
   <table class="w-full poppins">
     <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
       <tr>
-        <th>Preview</th>
+
         <th>Visit ID</th>
         <th>Name of student</th>
         <th>grade and section</th>
@@ -13,6 +13,7 @@
         <th>DATE</th>
         <th>Treatment</th>
         <th>Qty.</th>
+        <th>Preview</th>
       </tr>
 
     </thead>
@@ -35,14 +36,6 @@
             $_lastname = htmlspecialchars($row['lastname']);
 
             echo "<tr class=''>";
-            echo "<td>
-        <form action='../../Controller/studenthistory.php' method='POST'>
-                        <input type='hidden' name='fname' value='" . $_firstname . "'>
-                        <input type='hidden' name='lname' value='" . $_lastname . "'>
-                        <button type='submit' name='view-history'><span style='color: green;'>View History</span></button>
-                        </form>
-            </td>";
-
             echo "<td>" . htmlspecialchars($row['id']) . "</td>";
             echo "<td>" . htmlspecialchars($row['firstname']) . " " . htmlspecialchars($row['lastname']) . "</td>";
             echo "<td>" . htmlspecialchars($row['grade']) . " - " . htmlspecialchars($row['section']) . "</td>";
@@ -52,6 +45,13 @@
             echo "<td>" . htmlspecialchars($row['_date']) . "</td>";
             echo "<td>" . $treatment . "</td>";
             echo "<td>" . htmlspecialchars($row['Quantity']) . "</td>";
+            echo "<td>
+                        <form action='../../Controller/studenthistory.php' method='POST'>
+                          <input type='hidden' name='fname' value='" . $_firstname . "'>
+                          <input type='hidden' name='lname' value='" . $_lastname . "'>
+                          <button class='flex rounded-lg gap-5 px-3 py-2.5 bg-primary cursor-pointer text-white' type='submit' name='view-history'><p class='hidden lg:block'>Visit History </p> <img class='lg:hidden size-5 block' src='../assets/icons/view-icon.svg'></button>
+                        </form>
+                  </td>";
             echo "</tr>";
           }
         } else {

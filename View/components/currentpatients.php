@@ -24,9 +24,6 @@ include("body.php")
             <?php
             include("../../config/database.php");
 
-
-
-
             try {
                 $query = "SELECT * FROM visitor where checkout = '' order by checkin desc";
                 $result = $conn->query($query);
@@ -72,11 +69,9 @@ include("body.php")
                 }
             }
             ?>
-
-            <?php echo "           <!-- Popup Overlay -->
+            <!-- Popup Overlay -->
+            <?php echo "           
             <div class='backdrop-blur-xs uppercase fixed h-dvh w-[90%] justify-center items-center p-5 top-0 right-0 hidden' id='popupOverlay'>
-
-
                 <div class='bg-white shadow-xl flex relative flex-col gap-5 p-5 w-[70%] items-center  size-100 '>
 
                     <h1 class='poppins  font-[500] bg-white text-nowrap mt-5 text-[min(4.5vw,2rem)]'>

@@ -15,7 +15,7 @@ include('../components/navbar.php');
 
   <section class="relative mt-5 text-[max(3vw,2rem)] ">
     <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
-      Student Form's
+      Student's list Form
     </h1>
     <hr class="absolute z-[-1] text-[#acacac] top-1/2 w-full" />
   </section>

@@ -11,15 +11,18 @@ include('../components/body.php');
 include('../components/navbar.php');
 ?>
 
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
 <section class="overflow-x-hidden md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
-  <section class="relative py-7.5 pt-12">
-    <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 text-2xl">
+
+  <a class="flex bg-[#06118e] text-white poppins uppercase font-semibold  w-42 text-center py-2.5 px-3 rounded-lg m-5 justify-evenly text-[max(1vw,1rem)]" href="studentlist.php"><span>Back</span><img src="../assets/icons/back-icon.svg" alt="back-icon"></a>
+
+  <section class="relative mt-5 text-[max(3vw,2rem)] ">
+    <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
       student information
     </h1>
-    <hr class="absolute z-[-1] w-full top-17" />
+    <hr class="absolute z-[-1] text-[#acacac] top-1/2 w-full" />
   </section>
+
   <?php
   include('../../config/database.php');
 
@@ -290,12 +293,11 @@ include('../components/navbar.php');
       </section>
 
       <!--form for STUDENT MEDICAL HISTORY ........ -->
-      <section class="relative py-7.5 pt-12">
-
-        <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 md:text-lg">
+      <section class="relative  my-5 text-[min(4vw,1.5rem)] ">
+        <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
           MEDICAL HISTORY
         </h1>
-        <hr class="absolute z-[-1] w-full top-15" />
+        <hr class="absolute z-[-1] w-full top-1/2" />
       </section>
 
       <section class="poppins flex flex-col md:flex-row capitalize gap-3 justify-evenly">

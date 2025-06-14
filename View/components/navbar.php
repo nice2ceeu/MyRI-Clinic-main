@@ -41,7 +41,7 @@
       <!-- current patientn in clinic link -->
       <a
         class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
-        href="../pages/Current-Patients.php"><img src="../assets/icons/inside-icon.svg" alt="visitor-icon" />
+        href="../pages/Current-Patients.php"><img src="../assets/icons/current-icon.svg" alt="visitor-icon" />
         <p class="md:hidden lg:block">Current Patients</p>
       </a>
 
@@ -60,7 +60,7 @@
       <!-- student info -->
       <a
         class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
-        href="../pages/enrolledstudentlist.php"><img src="../assets/icons/student-icon.svg" alt="inforamation-icon" />
+        href="../pages/enrolledstudentlist.php"><img src="../assets/icons/enroll-icon.svg" alt="inforamation-icon" />
         <p class="md:hidden lg:block">enrolled students</p>
       </a>
       <!-- student info -->
