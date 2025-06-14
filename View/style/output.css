@@ -13,8 +13,6 @@
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-xs: 20rem;
-    --text-xs: 0.75rem;
-    --text-xs--line-height: calc(1 / 0.75);
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-lg: 1.125rem;
@@ -27,6 +25,8 @@
     --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
     --text-7xl: 4.5rem;
     --text-7xl--line-height: 1;
     --font-weight-semibold: 600;
@@ -218,26 +218,14 @@
   .top-100 {
     top: calc(var(--spacing) * 100);
   }
-  .top-\[-3px\] {
-    top: -3px;
-  }
   .top-\[-10px\] {
     top: -10px;
-  }
-  .top-\[-15px\] {
-    top: -15px;
   }
   .top-\[-17px\] {
     top: -17px;
   }
   .top-\[-20px\] {
     top: -20px;
-  }
-  .top-\[-50px\] {
-    top: -50px;
-  }
-  .top-\[3px\] {
-    top: 3px;
   }
   .top-\[20px\] {
     top: 20px;
@@ -281,12 +269,6 @@
   .my-10 {
     margin-block: calc(var(--spacing) * 10);
   }
-  .mt-2 {
-    margin-top: calc(var(--spacing) * 2);
-  }
-  .mt-2\.5 {
-    margin-top: calc(var(--spacing) * 2.5);
-  }
   .mt-3 {
     margin-top: calc(var(--spacing) * 3);
   }
@@ -313,9 +295,6 @@
   }
   .mr-1 {
     margin-right: calc(var(--spacing) * 1);
-  }
-  .mb-5 {
-    margin-bottom: calc(var(--spacing) * 5);
   }
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
@@ -380,9 +359,6 @@
   }
   .h-\[70\%\] {
     height: 70%;
-  }
-  .h-\[80\%\] {
-    height: 80%;
   }
   .h-dvh {
     height: 100dvh;
@@ -691,17 +667,8 @@
   .py-7\.5 {
     padding-block: calc(var(--spacing) * 7.5);
   }
-  .pt-5 {
-    padding-top: calc(var(--spacing) * 5);
-  }
-  .pt-10 {
-    padding-top: calc(var(--spacing) * 10);
-  }
   .pt-12 {
     padding-top: calc(var(--spacing) * 12);
-  }
-  .pt-20 {
-    padding-top: calc(var(--spacing) * 20);
   }
   .pt-40 {
     padding-top: calc(var(--spacing) * 40);
@@ -740,15 +707,14 @@
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
   }
-  .text-xs {
-    font-size: var(--text-xs);
-    line-height: var(--tw-leading, var(--text-xs--line-height));
-  }
   .text-\[20px\] {
     font-size: 20px;
   }
   .text-\[40px\] {
     font-size: 40px;
+  }
+  .text-\[100px\] {
+    font-size: 100px;
   }
   .leading-1 {
     --tw-leading: calc(var(--spacing) * 1);

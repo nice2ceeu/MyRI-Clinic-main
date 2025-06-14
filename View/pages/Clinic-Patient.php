@@ -15,7 +15,7 @@ include('../components/navbar.php');
 
   class="md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
   <section class="relative py-7.5 pt-12">
-    <h1 class="poppins uppercase bg-white ml-12 px-5 inline z-20 text-4xl">
+    <h1 class="poppins uppercase font-semibold bg-white ml-12 px-5 inline z-20 text-2xl">
       Today's Patient
     </h1>
     <hr class="absolute z-[-1] w-full top-17" />
@@ -35,7 +35,7 @@ include('../components/navbar.php');
 
         id="label"
         class="absolute text-nowrap inline top-0 bg-white ml-2 px-1 leading-1"
-        for="first">First</label>
+        for="first">First Name</label>
 
       <input
         required
