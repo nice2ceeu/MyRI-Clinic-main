@@ -87,8 +87,8 @@ include('../components/body.php');
                 <hr class="text-[#f5f5f565]  w-full">
                 <a
                     class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start lg:items-center mt-3 hover:bg-[#ffffff1f]"
-                    href="">
-                    <img class="size-6 " src="../assets/icons/user-icon.svg" alt="visitor-icon" />
+                    href="../">
+                    <img class=" size-6 " src=" ../assets/icons/user-icon.svg" alt="visitor-icon" />
                     <div class="md:hidden lg:block flex flex-col">
                         <?php
                         echo "
@@ -121,30 +121,33 @@ include('../components/body.php');
 </nav>
 <!-- navvvvvvvvvvv -->
 
-<main class="md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82 overflow-hidden ">
-
-    <section class="relative flex  flex-col">
-
-        <img src="../public/ri-img.png" class="h-62 object-cover w-full" alt="">
-        <img src="../assets/icons/user-icon.svg" class="invert absolute top-50  size-36 w-full" alt="user-icon" />
-        <h1 class="px-5 absolute top-10 before:content-['Number_of_visits:_'] krona"><?php if ($count != 0) {
-                                                                                            echo $count;
-                                                                                        } else {
-                                                                                            echo "0";
-                                                                                        } ?></h1>
-        <hr class="w-full">
-        <section class="w-full absolute top-100 text-center text-7xl poppins mt-10">
-
-            <hr class="w-full text-[#e6e6f89d]">
-            <h1><?php echo $firstname . " " . $lastname ?></h1>
-            <p>LRN: <?php echo $username ?></p>
+<main class="md:sm:ml-24 h-dvh lg:ml-72 md:h-dvh xl:lg:ml-82  overflow-x-hidden bg-gradient-to-b from-[#edf3f2] to-[#626de2] ">
+    <img src="../public/ri-img.png" class="h-52 object-cover w-full" alt="">
 
 
-
+    <section class="flex flex-col  w-full ">
+        <section class="flex flex-col md:flex-row poppins">
+            <img src="../assets/icons/user-icon.svg" class="invert mx-10 size-32" alt="user-icon" />
+            <div class="md:mt-auto mx-10 md:mx-0  space-y-2">
+                <h1 class="text-nowrap text-[min(5vw,2rem)] capitalize font-semibold"><?php echo $firstname . " " . $lastname ?></h1>
+                <p class="text-lg">LRN: <?php echo $username ?></p>
+            </div>
+            <h1 class="px-5 text-[min(2vw,1rem)] font-semibold bg-white rounded-lg mx-5 mt-auto ml-auto before:content-['Number_of_visits:_'] ">
+                <?php if ($count != 0) {
+                    echo $count;
+                } else {
+                    echo "0";
+                } ?>
+            </h1>
         </section>
-        <div class="bg-gradient-to-b from-[#edf3f2] to-[#1f2cb9] h-dvh w-full opacity-50 z-[-19]"></div>
+
+        <hr class="w-full mt-5">
 
     </section>
+
+
+
+
 </main>
 
 <script src="../script/scriptnavbar.js"></script>

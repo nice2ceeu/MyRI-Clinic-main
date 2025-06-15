@@ -56,7 +56,7 @@ include('../components/body.php');
     </section>
     <input
       class="placeholder:poppins placeholder:textlg border-1 py-2.5 px-4.5 appearance-none rounded-lg w-[100%]"
-      type="text"
+      type="number"
       name="username"
       placeholder="Student LRN"
       required />

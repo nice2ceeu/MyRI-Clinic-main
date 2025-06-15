@@ -38,7 +38,7 @@ include('../components/navbar.php');
         <form
             action="../../Controller/addmeds.php"
             method="POST"
-            class="px-8.5 gap-3.5  uppercase my-10 flex justify-center flex-wrap lg:flex-nowrap min-[200px]:w-[90%] ">
+            class="px-8.5 gap-3.5  uppercase my-10 flex justify-left flex-wrap lg:flex-nowrap min-[200px]:w-[90%] ">
 
 
             <section class="relative basis-xm  ">
@@ -108,9 +108,62 @@ include('../components/navbar.php');
         <section class="relative mt-12">
             <hr class="absolute text-[#acacac] z-[-1] w-full bottom-0" />
         </section>
+
+
+
+
+
+        <!-- sort section -->
+
+        <section class="poppins uppercase place-self-left py-3.5 mx-8.5">
+            <form class=" flex items-center flex-wrap gap-5" action="">
+
+
+                <div class="relative">
+                    <label
+                        id="label"
+                        class="absolute text-nowrap inline top-0 ml-2 bg-white px-1 leading-1"
+                        for="complaint">
+                        expiration
+                    </label>
+                    <select name="accountStatus" id="complaint" class="border rounded px-7.5 py-1.5">
+                        <option disabled selected>Select to filter</option>
+                        <option value="expired">Expired</option>
+                        <option value="inEffect">In Effect</option>
+                    </select>
+                </div>
+
+                <div class="relative">
+                    <label
+                        id="label"
+                        class="absolute text-nowrap inline top-0 ml-2 bg-white px-1 leading-1"
+                        for="complaint">
+                        Stock Status
+                    </label>
+                    <select name="accountStatus" id="complaint" class="border rounded px-7.5 py-1.5">
+                        <option disabled selected>Select to filter</option>
+                        <option value="Available">Available</option>
+                        <option value="unavailable">Unavailable</option>
+                        <option value="out_of_stocks">Out of stocks</option>
+                    </select>
+                </div>
+
+
+                <button
+                    name="filter"
+                    class="uppercase bg-primary text-white rounded-lg py-2 px-9 flex gap-5 items-center justify-evenly cursor-pointer">
+                    <p>Filter</p>
+                    <img clas src="../assets/icons/filter-icon.svg" alt="" />
+                </button>
+            </form>
+        </section>
+
+
+
     </section>
-    <div class="px-8.5">
-        <table class="w-full   poppins uppercase">
+    <div
+        class="uppercase mt-22 py-10 px-8.5 w-full max-w-full overflow-x-auto">
+        <table class="min-w-full poppins">
             <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
                 <tr>
                     <th>Med ID</th>
@@ -159,7 +212,7 @@ include('../components/navbar.php');
                             echo "<td>" . "<form action='../../Controller/delete.php' method='POST'>
                         <input type='hidden' name='id' value='" . $_id . "'>
                             
-                        <button class='poppins flex gap-5 text-white px-3 py-3 rounded-lg uppercase cursor-pointer justify-evenly bg-red-500 ' type='submit' name='delete'><span '>Delete</span> <img src='../assets/icons/delete-icon.svg'></button>
+                        <button class='flex rounded-lg gap-5 px-7 py-2.5 bg-red-500 cursor-pointer text-white' type='submit' name='delete'><span '>Delete</span> </button>
                         </form> " . "</td>";
                             echo "</tr>";
                         }

@@ -39,7 +39,7 @@ include('../components/navbar.php');
         <hr class="absolute z-[-1] text-[#acacac] top-1/2 w-full" />
     </section>
 
-    <section class="flex items-center justify-between my-5  mx-8.5">
+    <section class="flex items-center gap-5 justify-between my-5   mx-8.5">
         <form
             class="flex gap-5"
             action="../../Controller/search.php"
@@ -79,11 +79,16 @@ include('../components/navbar.php');
         </form>
         <button
             id="file-upload"
-            class="bg-primary relative text-white  poppins z-20 w-1/3 justify-center cursor-pointer border-1 px-5 py-3 flex gap-x-3 rounded-lg">
+            class="bg-primary relative text-white  poppins  justify-evenly  cursor-pointer border-1 px-5 py-3 flex gap-x-3 rounded-lg">
             Upload a file
             <img src="../assets/icons/file-upload-icon.svg" alt="">
         </button>
+
+
     </section>
+
+
+
 
     <div id="blur" class="fixed h-dvh backdrop-blur-xs top-0 bg-white/30 z-0 w-full"></div>
 
@@ -127,18 +132,77 @@ include('../components/navbar.php');
     <section class="relative mt-12">
         <hr class="absolute text-[#acacac] z-[-1] w-full bottom-0" />
     </section>
+
+
+
+
+
+    <!--  -->
+    <section class="relative mt-12">
+        <hr class="absolute text-[#acacac] z-[-1] w-full bottom-0" />
+    </section>
+    <!--  -->
+
+    <!-- sort section -->
+
+    <section class="poppins uppercase place-self-left py-3.5 mx-8.5">
+        <form class=" flex items-center flex-wrap gap-5" action="">
+
+
+            <div class="relative">
+                <label
+                    id="label"
+                    class="absolute text-nowrap inline top-0 ml-2 bg-white px-1 leading-1"
+                    for="complaint">
+                    Account Status
+                </label>
+                <select name="accountStatus" id="complaint" class="border rounded px-7.5 py-1.5">
+                    <option disabled selected>Select to filter</option>
+                    <option value="registered">registered</option>
+                    <option value="notRegistered">Not registered</option>
+                </select>
+            </div>
+
+            <button
+                name="filter"
+                class="uppercase bg-primary text-white rounded-lg py-2 px-9 flex gap-5 items-center justify-evenly cursor-pointer">
+                <p>Filter</p>
+                <img clas src="../assets/icons/filter-icon.svg" alt="" />
+            </button>
+
+            <button
+                name="selectAll"
+                class="uppercase border-1 rounded-lg py-2 px-5 flex gap-5 items-center justify-evenly cursor-pointer">
+                <p>select all</p>
+                <img class="invert size-5" src="../assets/icons/select-all-icon.svg" alt="" />
+            </button>
+
+            <button
+                name="deleteSelected"
+                class="uppercase border-1 rounded-lg py-2 px-9 flex gap-5 items-center justify-evenly cursor-pointer">
+                <img class="invert size-5" src="../assets/icons/delete-icon.svg" alt="" />
+            </button>
+        </form>
+    </section>
+
+
+
+
+
     <!-- end of upload <form action=""></form> -->
     <!-- end of upload <form action=""></form> -->
     <!-- end of upload <form action=""></form> -->
 
 
-    <div class="px-8.5 ">
-        <table class="w-full poppins ">
+    <div
+        class="uppercase mt-22 py-10 px-8.5 w-full max-w-full overflow-x-auto">
+        <table class="min-w-full poppins">
             <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22 ">
                 <tr class="">
+                    <th></th>
                     <th>ID</th>
                     <th>FULL NAME</th>
-                    <th>Username<br>(LRN)</th>
+                    <th>Username (LRN)</th>
                     <th>Account Status</th>
                     <th>Reset Password</th>
                 </tr>
@@ -163,6 +227,7 @@ include('../components/navbar.php');
                             }
                             $id = htmlspecialchars($row['id']);
                             echo "<tr class=''>";
+                            echo "<td><input class='size-3.5'type='checkbox'></td>";
                             echo "<td>" . $id . "</td>";
                             echo "<td>" . htmlspecialchars($row['lastname']) . " " . htmlspecialchars($row['firstname']) .   "</td>";
                             echo "<td>" . htmlspecialchars($row['username'])  . "</td>";

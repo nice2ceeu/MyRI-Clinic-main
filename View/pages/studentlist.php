@@ -21,8 +21,13 @@ include('../components/navbar.php');
   </section>
 
   <!-- FORM SEARCH SECTION FOR USERS  -->
-  <form action="../../Controller/search.php" method="POST" class="w-1/2 relative mt-[30px] uppercase px-8.5 flex gap-7">
-    <section class="relative w-full grow-1">
+  <form
+    action="../../Controller/search.php"
+    method="POST"
+    class="mx-8.5 mt-5 gap-3.5 uppercase flex justify-left flex-wrap lg:flex-nowrap min-[200px]:w-[90%]">
+
+
+    <section class="relative  basis-xs ">
       <label
         id="label"
         class="absolute text-nowrap inline top-0 bg-white ml-2 px-1 leading-1"

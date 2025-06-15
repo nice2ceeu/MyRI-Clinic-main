@@ -134,10 +134,66 @@ include('../components/navbar.php');
 
   <!--  -->
   <!--  -->
-  <section class="relative mt-12">
+  <section class="relative my-12">
     <hr class="absolute text-[#acacac] z-[-1] w-full bottom-0" />
   </section>
   <!--  -->
+  <!-- sort section -->
+  <section class="poppins uppercase place-self-left py-3.5 mx-8.5">
+    <form class=" flex items-center flex-wrap gap-5" action="">
+      <div class="relative">
+        <label
+          id="label"
+          class="absolute text-nowrap inline top-0 ml-2 bg-white px-1 leading-1"
+          for="complaint">
+          Time of Day
+        </label>
+        <select name="filterDay" id="complaint" class="border rounded px-3.5 py-1.5">
+          <option disabled selected>Select to filter</option>
+          <option value="morning">Morning</option>
+          <option value="afternoon">Afternoon</option>
+          <option value="evening">Evening</option>
+          <option value="night">Night</option>
+        </select>
+      </div>
+
+
+      <div class="relative">
+        <label
+          id="label"
+          class="absolute text-nowrap inline top-0 ml-2 bg-white px-1 leading-1"
+          for="complaint">
+          Status
+        </label>
+        <select name="filterStatus" id="complaint" class="border-1  rounded px-3.5 py-1.5">
+          <option disabled selected>Select to filter</option>
+          <option value="morning">Treated</option>
+          <option value="on_treatment">On Treatment</option>
+
+        </select>
+      </div>
+
+
+
+      <div class="relative">
+        <label
+          id="label"
+          class="absolute text-nowrap inline top-0 ml-2 bg-white px-1 leading-1"
+          for="complaint">
+          grade
+        </label>
+        <input class="border-1 rounded px-3.5 py-1.5 w-22" type="number" name="studentGrade" id="">
+      </div>
+
+
+      <button
+        name="submit"
+        class="uppercase bg-primary text-white rounded-lg py-2 px-9 flex gap-5 items-center justify-evenly cursor-pointer">
+        <p>Filter</p>
+        <img clas src="../assets/icons/filter-icon.svg" alt="" />
+      </button>
+    </form>
+  </section>
   <!--  -->
   <!-- visitor list components >>>>>>>>> -->
   <?php

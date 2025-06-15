@@ -12,11 +12,11 @@ include('../components/body.php');
 ?>
 
 <section class="overflow-x-hidden md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
-    <section class="relative py-7.5 pt-12">
-        <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 text-2xl">
+    <section class="relative my-5 text-[max(3vw,2rem)] ">
+        <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
             student information
         </h1>
-        <hr class="absolute z-[-1] w-full top-17" />
+        <hr class="absolute z-[-1] w-full top-1/2" />
     </section>
     <?php
     include('../../config/database.php');
@@ -387,13 +387,13 @@ include('../components/body.php');
             </section>
 
             <!--form for STUDENT MEDICAL HISTORY ........ -->
-            <section class="relative py-7.5 pt-12">
-
-                <h1 class="poppins uppercase bg-white lg:ml-12 px-5 inline z-20 md:text-lg">
+            <section class="relative  my-5 text-[min(4vw,1.5rem)] ">
+                <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
                     MEDICAL HISTORY
                 </h1>
-                <hr class="absolute z-[-1] w-full top-15" />
+                <hr class="absolute z-[-1] w-full top-1/2" />
             </section>
+
 
             <section class="poppins flex flex-col md:flex-row capitalize gap-3 justify-evenly">
                 <!-- First column -->
@@ -876,7 +876,8 @@ include('../components/body.php');
 
             type="submit"
             name='download-stud'
-            class="bg-primary poppins place-self-center mt-5 w-1/3 justify-center cursor-pointer text-white px-5 py-3 flex gap-x-3 rounded-lg">
+            class="bg-primary poppins my-5 place-self-center mt-5 w-1/5 justify-center cursor-pointer text-white px-5 py-3 flex gap-x-3 rounded-lg">
+
             <p>Download</p>
             <img src="../assets/icons/check-icon.svg" alt="check-icon" />
 

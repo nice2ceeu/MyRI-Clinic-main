@@ -1,6 +1,6 @@
 <main
-  class="uppercase mt-22 px-8.5 ">
-  <table class="w-full poppins">
+  class="uppercase mt-22 py-10 px-8.5 w-full max-w-full overflow-x-auto">
+  <table class="min-w-full poppins">
     <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
       <tr>
 
@@ -49,7 +49,7 @@
                         <form action='../../Controller/studenthistory.php' method='POST'>
                           <input type='hidden' name='fname' value='" . $_firstname . "'>
                           <input type='hidden' name='lname' value='" . $_lastname . "'>
-                          <button class='flex rounded-lg gap-5 px-3 py-2.5 bg-primary cursor-pointer text-white' type='submit' name='view-history'><p class='hidden lg:block'>Visit History </p> <img class='lg:hidden size-5 block' src='../assets/icons/view-icon.svg'></button>
+                          <button class='flex rounded-lg gap-5 px-3 py-2.5 bg-primary cursor-pointer text-white' type='submit' name='view-history'><p class='hidden lg:block'>View History </p> <img class='lg:hidden size-5 block' src='../assets/icons/view-icon.svg'></button>
                         </form>
                   </td>";
             echo "</tr>";

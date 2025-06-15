@@ -1,6 +1,6 @@
 <main
-    class="uppercase mt-22 px-8.5 ">
-    <table class="w-full poppins">
+    class="uppercase mt-22 py-10 px-8.5 w-full max-w-full overflow-x-auto">
+    <table class="min-w-full poppins">
         <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
             <tr>
                 <th>ID</th>
