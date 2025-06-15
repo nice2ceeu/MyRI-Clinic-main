@@ -111,7 +111,7 @@ include('../components/body.php');
               }
             } else {
               echo "<tr>";
-              echo "<td colspan='7' class='text-center bg-[#d4d4d40c]'>" . "No data available." . "</td>";
+              echo "<td colspan='8' class='text-center bg-[#d4d4d40c]'>" . "No data available." . "</td>";
               echo "</tr>";
             }
           } catch (mysqli_sql_exception $e) {
@@ -128,7 +128,6 @@ include('../components/body.php');
     </tbody>
   </table>
 </main>
-
 <script>
   sessionStorage.setItem("lastPage", window.location.href);
 </script>

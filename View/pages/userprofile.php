@@ -32,7 +32,6 @@ if (!isset($_SESSION['username'])) {
 include('../components/body.php');
 ?>
 
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 <!-- navvvvvvvvvvv -->
 <header
@@ -67,49 +66,54 @@ include('../components/body.php');
 
         <!-- navlinks -->
         <section
-            class="poppins uppercase row-start-2 bg-primary flex gap-y-3 flex-col  px-3 py-4 text-lg">
+            class="poppins  row-start-2 bg-primary flex gap-y-3 flex-col  px-3 py-4 text-lg [&>a>img]:size-6 pt-5 [&>a]:text-[16px] [&>a]:lg:items-center [&>a]:tracking-wide">
+
             <!-- studnet info -->
             <a
-                class="flex gap-x-4 px-3.5 py-3.5 leading-6 bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
+                class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
                 href="../pages/userformview.php">
-                <img src="../assets/icons/stud-info-icon.svg" alt="visitor-icon" />
-                <p class="md:hidden lg:block">My Medical Form</p>
+                <img src="../assets/icons/medicalform-icon.svg" alt="medicalform-icon" />
+                <p class="md:hidden lg:block">My medical form</p>
             </a>
 
             <a
-                class="flex gap-x-4 px-3.5 py-3.5 leading-6 bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
+                class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
                 href="../pages/userhistory.php">
-                <img src="../assets/icons/stud-info-icon.svg" alt="visitor-icon" />
-                <p class="md:hidden lg:block">My History</p>
+                <img src="../assets/icons/history-icon.svg" alt="visitor-icon" />
+                <p class="md:hidden lg:block">My history</p>
             </a>
-            <section class="mt-auto">
-                <a
-                    class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start mt-3 hover:bg-[#ffffff1f]"
-                    href="../pages/changepass.php">
-                    <img src="../assets/icons/user-icon.svg" alt="user-icon" />
-                    <p class="md:hidden lg:block">Manage Password</p>
-                </a>
+            <section class="mt-auto uppercase">
+
                 <hr class="text-[#f5f5f565]  w-full">
                 <a
-                    class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start mt-3 hover:bg-[#ffffff1f]"
-                    href="../pages/userprofile.php">
-                    <img src="../assets/icons/user-icon.svg" alt="user-icon" />
-                    <p class="md:hidden lg:block"><?php echo $_SESSION['user_role'] . "<br>" . $firstname . " " . $lastname ?></p>
+                    class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start lg:items-center mt-3 hover:bg-[#ffffff1f]"
+                    href="">
+                    <img class="size-6 " src="../assets/icons/user-icon.svg" alt="visitor-icon" />
+                    <div class="md:hidden lg:block flex flex-col">
+                        <?php
+                        echo "
+            <div class='flex flex-row text-[15px] gap-2'>
+              <p>{$_SESSION['firstname']}</p>
+              <p>{$_SESSION['lastname']}</p>
+            </div>
+            <p class='text-sm opacity-50'>{$_SESSION['user_role']}</p>
+            "; ?>
+                    </div>
                 </a>
             </section>
         </section>
         <section
-            class="rounded-bl-2xl md:rounded-none row-start-3 bg-secondary poppins uppercase px-5 py-3.5 flex text-lg w-full items-center gap-x-5">
+            class="rounded-bl-2xl  md:rounded-none row-start-3 bg-secondary poppins   flex text-lg w-full items-center  gap-x-5">
 
             <!-- logout -->
-            <form action="../../Controller/logout.php" method="POST">
+            <form class="w-full px-3.5  " action="../../Controller/logout.php" method="POST">
                 <button
                     id="logout-btn"
                     type="submit"
                     name="submit"
-                    class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start cursor-pointer"
-                    href="../pages/index.php"><img src="../assets/icons/exit-icon.svg" alt="inforamation-icon" />
-                    <p class="md:hidden lg:block">logout</p>
+                    class="flex gap-x-4 px-3.5  poppins  rounded-lg md:flex md:justify-center lg:justify-start lg:items-center w-full cursor-pointer"
+                    href="../pages/index.php"><img class="size-6" src="../assets/icons/exit-icon.svg" alt="inforamation-icon" />
+                    <p class="md:hidden lg:block">Logout</p>
                 </button>
             </form>
         </section>

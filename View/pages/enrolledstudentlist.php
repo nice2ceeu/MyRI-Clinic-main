@@ -163,6 +163,10 @@ include('../components/navbar.php');
 
                             echo "</tr>";
                         }
+                    } else {
+                        echo "<tr>";
+                        echo "<td colspan='8' class='text-center uppercase bg-[#d4d4d40c]'>" . "No data available." . "</td>";
+                        echo "</tr>";
                     }
                 } catch (mysqli_sql_exception $e) {
                     echo "Error: " . $e->getMessage();

@@ -1,5 +1,7 @@
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 <header
-  class="bg-primary flex krona text-3xl justify-between px-7 py-4.5 items-center text-white md:hidden">
+  class="bg-primary flex poppins text-3xl justify-between px-7 py-4.5 items-center text-white md:hidden">
   <img
     id="home-btn"
     class="size-12 cursor-pointer"
@@ -30,44 +32,44 @@
 
     <!-- navlinks -->
     <section
-      class="poppins uppercase row-start-2 bg-primary flex gap-y-3 flex-col  px-3 py-4 text-lg">
+      class="poppins  row-start-2 bg-primary flex gap-y-3 flex-col  px-3 py-4 text-lg [&>a>img]:size-6 pt-5 [&>a]:text-[16px] [&>a]:lg:items-center [&>a]:tracking-wide">
       <!-- visitor link -->
       <a
-        class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
+        class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start "
         href="../pages/Clinic-Patient.php"><img src="../assets/icons/visit-icon.svg" alt="visitor-icon" />
-        <p class="md:hidden lg:block">Clinic Patient</p>
+        <p class="md:hidden lg:block">Clinic patient</p>
       </a>
 
       <!-- current patientn in clinic link -->
       <a
         class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
         href="../pages/Current-Patients.php"><img src="../assets/icons/current-icon.svg" alt="visitor-icon" />
-        <p class="md:hidden lg:block">Current Patients</p>
+        <p class="md:hidden lg:block">Current patients</p>
       </a>
 
       <!-- visit history -->
       <a
         class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
         href="../pages/Patient-History.php"><img src="../assets/icons/history-icon.svg" alt="history-icon" />
-        <p class="md:hidden lg:block">visitor history</p>
+        <p class="md:hidden lg:block">Visitor history</p>
       </a>
       <!-- medical forn  -->
       <a
         class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
         href="../pages/medicalform.php"><img src="../assets/icons/medicalform-icon.svg" alt="inforamation-icon" />
-        <p class="md:hidden lg:block">medical form</p>
+        <p class="md:hidden lg:block">Medical form</p>
       </a>
       <!-- student info -->
       <a
         class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
         href="../pages/enrolledstudentlist.php"><img src="../assets/icons/enroll-icon.svg" alt="inforamation-icon" />
-        <p class="md:hidden lg:block">enrolled students</p>
+        <p class="md:hidden lg:block">Enrolled students</p>
       </a>
       <!-- student info -->
       <a
         class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
         href="../pages/studentlist.php"><img src="../assets/icons/student-icon.svg" alt="inforamation-icon" />
-        <p class="md:hidden lg:block">student form list</p>
+        <p class="md:hidden lg:block">Student form list</p>
       </a>
 
       <!-- student info -->
@@ -80,14 +82,23 @@
       </a>
 
 
-      <section class="mt-auto">
+      <section class="mt-auto uppercase">
 
         <hr class="text-[#f5f5f565]  w-full">
         <a
-          class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start mt-3 hover:bg-[#ffffff1f]"
+          class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start lg:items-center mt-3 hover:bg-[#ffffff1f]"
           href="">
-          <img src="../assets/icons/user-icon.svg" alt="visitor-icon" />
-          <p class="md:hidden lg:block"><?php echo  $_SESSION['user_role'] . "<br>" . $_SESSION['firstname'] . " " . $_SESSION['lastname']  ?></p>
+          <img class="size-6 " src="../assets/icons/user-icon.svg" alt="visitor-icon" />
+          <div class="md:hidden lg:block flex flex-col">
+            <?php
+            echo "
+            <div class='flex flex-row text-[15px] gap-2'>
+              <p>{$_SESSION['firstname']}</p>
+              <p>{$_SESSION['lastname']}</p>
+            </div>
+            <p class='text-sm opacity-50'>{$_SESSION['user_role']}</p>
+            "; ?>
+          </div>
         </a>
       </section>
     </section>
@@ -95,17 +106,17 @@
 
 
     <section
-      class="rounded-bl-2xl md:rounded-none row-start-3 bg-secondary poppins uppercase px-5 py-3.5 flex text-lg w-full items-center gap-x-5">
+      class="rounded-bl-2xl  md:rounded-none row-start-3 bg-secondary poppins   flex text-lg w-full items-center  gap-x-5">
 
       <!-- logout -->
-      <form action="../../Controller/logout.php" method="POST">
+      <form class="w-full px-3.5" action="../../Controller/logout.php" method="POST">
         <button
           id="logout-btn"
           type="submit"
           name="submit"
-          class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start"
-          href="../pages/index.php"><img src="../assets/icons/exit-icon.svg" alt="inforamation-icon" />
-          <p class="md:hidden lg:block">logout</p>
+          class="flex gap-x-4 px-3.5 leading-5 poppins  rounded-lg md:flex md:justify-center lg:justify-start lg:items-center w-full cursor-pointer"
+          href="../pages/index.php"><img class="size-6" src="../assets/icons/exit-icon.svg" alt="inforamation-icon" />
+          <p class="md:hidden lg:block">Logout</p>
         </button>
       </form>
     </section>
