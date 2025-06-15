@@ -54,21 +54,21 @@ if (!isset($_SESSION['username'])) {
                 for='currentPass'>Current Password</label>
             <input
                 class="placeholder:poppins placeholder:textlg border-1 py-2.5 px-4.5 rounded-lg w-[70%]"
-                id='currentPass' type='password' name='currentPass'>
+                id='currentPass' type='password' name='currentPass' required>
         </section>
         <section class="relative uppercase flex justify-center w-full">
 
             <label class="absolute inline px-3 bg-white left-15.5 -top-3" for='newPass'>New Password</label>
             <input
                 class="placeholder:poppins placeholder:textlg border-1 py-2.5 px-4.5 rounded-lg w-[70%]"
-                id='newPass' type='password' name='newPass'>
+                id='newPass' type='password' name='newPass' required>
         </section>
 
         <section class="relative uppercase flex justify-center w-full">
             <label class="absolute inline px-3 bg-white left-15.5 -top-3" for='confirmPass'>Confirm Password</label>
             <input
                 class="placeholder:poppins placeholder:textlg border-1 py-2.5 px-4.5 rounded-lg w-[70%]"
-                id='confirmPass' type='password' name='confirmPass'>
+                id='confirmPass' type='password' name='confirmPass' required>
         </section>
 
         <div class="flex items-center gap-5">
