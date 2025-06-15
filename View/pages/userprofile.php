@@ -85,11 +85,22 @@ include('../components/body.php');
                 <img src="../assets/icons/history-icon.svg" alt="visitor-icon" />
                 <p class="md:hidden lg:block">My history</p>
             </a>
-            <section class="mt-auto uppercase">
+
+
+
+
+            <section class="mt-auto ">
+                <a
+                    class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] items-center rounded-lg md:flex md:justify-center lg:justify-start"
+                    href="../pages/changepass.php">
+                    <img class="size-7" src="../assets/icons/manage-pass-icon.svg" alt="visitor-icon" />
+                    <p class="md:hidden text-[16px] lg:block">Manage account</p>
+                </a>
+
 
                 <hr class="text-[#f5f5f565]  w-full">
                 <a
-                    class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start lg:items-center mt-3 hover:bg-[#ffffff1f]"
+                    class="flex gap-x-4 px-3.5 uppercase py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start lg:items-center mt-3 hover:bg-[#ffffff1f]"
                     href="../">
                     <img class=" size-6 " src=" ../assets/icons/user-icon.svg" alt="visitor-icon" />
                     <div class="md:hidden lg:block flex flex-col">
