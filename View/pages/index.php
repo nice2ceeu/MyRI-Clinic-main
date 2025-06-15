@@ -1,6 +1,18 @@
 <?php
 session_start();
 
+include("../../View/modal/alert.php");
+if (isset($_SESSION['modal_message'])) {
+  $msg = $_SESSION['modal_message'];
+  $title = $_SESSION['modal_title'] ?? 'Notice';
+
+  echo "<script>
+    document.getElementById('alertHeader').innerText = '$title';
+    showModal('$msg');
+  </script>";
+  unset($_SESSION['modal_message'], $_SESSION['modal_title']);
+}
+
 if (isset($_SESSION['username'])) {
   header("Location: visitor.php");
   exit();
@@ -52,9 +64,9 @@ if (isset($_SESSION['username'])) {
       SIGN IN
     </button>
     <section class="relative w-full text-center">
-      <hr class="absolute  top-3 w-30 md:w-30">
+      <hr class="absolute top-1/2 w-24 md:w-24">
       <p class="inline px-2  z-20">OR</p>
-      <hr class="absolute right-0  top-3 w-30 ">
+      <hr class="absolute right-0  top-3 w-24 ">
     </section>
     <p>Don't Have An Account? <a href="./signIn.php" class="text-blue-500">Sign up</a></p>
   </form>

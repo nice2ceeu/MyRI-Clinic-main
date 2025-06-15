@@ -1,6 +1,19 @@
 <?php
 session_start();
 
+include("../../View/modal/alert.php");
+if (isset($_SESSION['modal_message'])) {
+    $msg = $_SESSION['modal_message'];
+    $title = $_SESSION['modal_title'] ?? 'Notice';
+
+    echo "<script>
+    document.getElementById('alertHeader').innerText = '$title';
+    showModal('$msg');
+  </script>";
+    unset($_SESSION['modal_message'], $_SESSION['modal_title']);
+}
+
+
 if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit();
@@ -145,8 +158,8 @@ include('../components/navbar.php');
                         echo "<td>" . htmlspecialchars($row['issued']) . "</td>";
                         echo "<td>" . "<form action='../../Controller/delete.php' method='POST'>
                         <input type='hidden' name='id' value='" . $_id . "'>
-                        
-                        <button type='submit' name='delete'><span style='color: red;'>Delete</span></button>
+                            
+                        <button class='poppins flex gap-5 text-white px-3 py-3 rounded-lg uppercase cursor-pointer justify-evenly bg-red-500 ' type='submit' name='delete'><span '>Delete</span> <img src='../assets/icons/delete-icon.svg'></button>
                         </form> " . "</td>";
                         echo "</tr>";
                     }
@@ -160,7 +173,6 @@ include('../components/navbar.php');
             }
 
             ?>
-
 
         </tbody>
     </table>

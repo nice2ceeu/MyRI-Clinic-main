@@ -31,14 +31,21 @@ if (isset($_POST["submit"])) {
                     exit();
                 }
             } else {
-                echo "<script>alert('Invalid Password');
-                      window.location.href = '../view/pages/index.php';
-                      </script>";
+                echo
+                session_start();
+                $_SESSION['modal_title'] = 'Alert';
+                $_SESSION['modal_message'] = 'Invalid Password';
+                header("Location: ../view/pages/index.php");
+                exit;
             }
         } else {
-            echo "<script>alert('User not found');
-                  window.location.href = '../view/pages/index.php';
-                  </script>";
+            echo
+
+            session_start();
+            $_SESSION['modal_title'] = 'Alert';
+            $_SESSION['modal_message'] = 'User not found';
+            header("Location: ../view/pages/index.php");
+            exit;
         }
 
         $stmt->close();

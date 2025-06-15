@@ -13,11 +13,15 @@ if (isset($_POST['release'])) {
         $medicine = trim($_POST['medicine'] ?? '');
         $quantity = trim($_POST['medicine_qty'] ?? '');
 
+        // || $quantity === ""
+
         if ($medicine === "" || $quantity === "") {
-            echo "<script>
-                alert('Please fill all fields for medicinal treatment.');
-                window.location.href = '../View/pages/Current-Patients.php';
-            </script>";
+            echo
+            session_start();
+            $_SESSION['modal_title'] = 'Alert';
+            $_SESSION['modal_message'] = 'Please fill all fields for medicinal treatment.';
+            header("Location: ../view/pages/Current-Patients.php");
+
             exit;
         }
 
@@ -35,10 +39,11 @@ if (isset($_POST['release'])) {
             $medicine_id = $row['id']; // avoid overwriting $id
 
             if ($currQty < (int)$quantity) {
-                echo "<script>
-                    alert('Not enough stock.');
-                    window.location.href = '../View/pages/Current-Patients.php';
-                </script>";
+                echo
+                session_start();
+                $_SESSION['modal_title'] = 'Alert';
+                $_SESSION['modal_message'] = 'Not enough stock in medical inventory';
+                header("Location: ../view/pages/Current-Patients.php");
                 exit;
             }
 
@@ -74,24 +79,30 @@ if (isset($_POST['release'])) {
 
             $stmt3->execute();
 
-            echo "<script>
-                alert('Patient record updated successfully.');
-                window.location.href = '../View/pages/Current-Patients.php';
-            </script>";
+            echo
+            session_start();
+            $_SESSION['modal_title'] = 'successfull';
+            $_SESSION['modal_message'] = 'Patient record updated. You can check it in the visitor history';
+            header("Location: ../view/pages/Current-Patients.php");
+            exit;
         } else {
-            echo "<script>
-                alert('Medicine not found in inventory.');
-                window.location.href = '../View/pages/Current-Patients.php';
-            </script>";
+            echo
+            session_start();
+            $_SESSION['modal_title'] = 'ALERT';
+            $_SESSION['modal_message'] = 'Medicine not found in inventor';
+            header("Location: ../view/pages/Current-Patients.php");
+            exit;
         }
     } else if ($withMedicine == "no") {
         $physicalTreatment = trim($_POST['physical-treatment'] ?? '');
 
         if ($physicalTreatment === "") {
-            echo "<script>
-                alert('Please fill all fields for physical treatment.');
-                window.location.href = '../View/pages/Clinic-Patient.php';
-            </script>";
+            echo
+            session_start();
+            $_SESSION['modal_title'] = 'Alert';
+            $_SESSION['modal_message'] = 'Please fill all fields for physical treatment.';
+            header("Location: ../view/pages/Current-Patients.php");
+
             exit;
         }
 
@@ -99,9 +110,11 @@ if (isset($_POST['release'])) {
         $stmt->bind_param("ssi", $physicalTreatment, $checkout, $id);
         $stmt->execute();
 
-        echo "<script>
-            alert('Patient record updated successfully.');
-            window.location.href = '../View/pages/Current-Patients.php';
-        </script>";
+        echo
+        session_start();
+        $_SESSION['modal_title'] = 'successfull';
+        $_SESSION['modal_message'] = 'Patient record updated. You can check it in the visitor history';
+        header("Location: ../view/pages/Current-Patients.php");
+        exit;
     }
 }

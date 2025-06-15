@@ -88,11 +88,13 @@ if (isset($_POST["submit"])) {
     $checkStmt->store_result();
 
     if ($checkStmt->num_rows > 0) {
-        echo "<script>
-        alert('This patient already exists in the records.');
-        window.location.href = '../View/pages/medicalform.php'; 
-    </script>";
-        exit();
+        echo
+        // ??? not working alert mo 
+        session_start();
+        $_SESSION['modal_title'] = 'Alert';
+        $_SESSION['modal_message'] = 'This patient already exists in the record';
+        header("Location: ../view/pages/medicalform.php");
+        exit;
     }
 
     $checkStmt->close();
@@ -193,6 +195,12 @@ if (isset($_POST["submit"])) {
     );
 
     $stmt->execute();
-    echo "<script>alert('Medical Record Added'); window.location.href = '../view/pages/medicalform.php';</script>";
+    echo
+    // ??? not working alert mo 
+    session_start();
+    $_SESSION['modal_title'] = 'successfull';
+    $_SESSION['modal_message'] = 'Patient record updated. You can check it in the visitor history';
+    header("Location: ../view/pages/medicalform.php");
+    exit;
 }
 ?>

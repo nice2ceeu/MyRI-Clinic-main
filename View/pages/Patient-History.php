@@ -43,7 +43,6 @@ include('../components/navbar.php');
         name="fullname"
         placeholder="Dela Cruz, Juan"
         type="text" />
-
     </section>
 
 

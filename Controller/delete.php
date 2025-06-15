@@ -8,12 +8,20 @@ if (isset($_POST['delete'])) {
     $stmt = $conn->prepare("Delete FROM meds WHERE id = ?");
     $stmt->bind_param("i", $id);
     if ($stmt->execute()) {
-        echo "<script>alert('Medicine Removed');
-            window.location.href ='../view/pages/inventory.php'</script>";
+        echo
+
+        session_start();
+        $_SESSION['modal_title'] = 'Alert';
+        $_SESSION['modal_message'] = 'Medicine removed successfully.';
+        header("Location: ../view/pages/inventory.php");
+        exit;
     } else {
-        echo "<script>alert('Failed to Delete');
-            window.location.href ='../view/pages/inventory.php'
-            </script>";
+        echo
+        session_start();
+        $_SESSION['modal_title'] = 'Alert';
+        $_SESSION['modal_message'] = 'Failed to Delete the Medicine';
+        header("Location: ../view/pages/inventory.php");
+        exit;
     }
 
     $stmt->close();

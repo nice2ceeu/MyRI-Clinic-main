@@ -1,5 +1,18 @@
 <?php
+
 session_start();
+include("../../View/modal/alert.php");
+if (isset($_SESSION['modal_message'])) {
+    $msg = $_SESSION['modal_message'];
+    $title = $_SESSION['modal_title'] ?? 'Notice';
+
+    echo "<script>
+    document.getElementById('alertHeader').innerText = '$title';
+    showModal('$msg');
+  </script>";
+    unset($_SESSION['modal_message'], $_SESSION['modal_title']);
+}
+
 
 if (!isset($_SESSION['username'])) {
     header("Location: index.php");
