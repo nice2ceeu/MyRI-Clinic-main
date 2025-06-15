@@ -25,7 +25,7 @@ include('../components/body.php');
 include('../components/navbar.php');
 ?>
 
-<section class="md:sm:ml-24 relative lg:ml-72 md:h-dvh xl:lg:ml-82 overflow-x-hidden uppercase">
+<section class="md:sm:ml-24 relative  lg:ml-72 md:h-dvh xl:lg:ml-82 overflow-x-hidden uppercase">
 
 
     <section class="relative mt-5 text-[max(3vw,2rem)] ">
@@ -38,7 +38,7 @@ include('../components/navbar.php');
         <form
             action="../../Controller/addmeds.php"
             method="POST"
-            class="px-8.5 gap-3.5 uppercase my-10 flex justify-center flex-wrap lg:flex-nowrap min-[200px]:w-[90%] ">
+            class="px-8.5 gap-3.5  uppercase my-10 flex justify-center flex-wrap lg:flex-nowrap min-[200px]:w-[90%] ">
 
 
             <section class="relative basis-xm  ">
@@ -109,73 +109,75 @@ include('../components/navbar.php');
             <hr class="absolute text-[#acacac] z-[-1] w-full bottom-0" />
         </section>
     </section>
+    <div class="px-8.5">
+        <table class="w-full   poppins uppercase">
+            <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
+                <tr>
+                    <th>Med ID</th>
+                    <th>medicine name</th>
+                    <th>quantity</th>
+                    <th>expiration date</th>
+                    <th>status of stock</th>
+                    <th>Issued</th>
+                    <th>Delete Medicine</th>
+                </tr>
+            </thead>
+            <tbody class="text-left [&>tr]:odd:bg-[#a8a8a829] [&>tr>td]:px-4 [&>tr>td]:py-4.5">
+                <?php
+                include('../../config/database.php');
+                $today = date("Y-m-d");
+                try {
+                    $query = "SELECT * FROM meds order by Medicine_Name asc";
+                    $result = $conn->query($query);
+                    if ($result->num_rows > 0) {
 
-    <table class="w-full poppins uppercase">
-        <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
-            <tr>
-                <th>Med ID</th>
-                <th>medicine name</th>
-                <th>quantity</th>
-                <th>expiration date</th>
-                <th>status of stock</th>
-                <th>Issued</th>
-                <th>Delete Medicine</th>
-            </tr>
-        </thead>
-        <tbody class="text-left [&>tr]:odd:bg-[#a8a8a829] [&>tr>td]:px-4 [&>tr>td]:py-4.5">
-            <?php
-            include('../../config/database.php');
-            $today = date("Y-m-d");
-            try {
-                $query = "SELECT * FROM meds order by Medicine_Name asc";
-                $result = $conn->query($query);
-                if ($result->num_rows > 0) {
-
-                    while ($row = $result->fetch_assoc()) {
-                        $_id = htmlspecialchars($row['id']);
-                        $qty = htmlspecialchars($row['Med_Quantity']);
-
-
-
-                        $epx = htmlspecialchars($row['Expiration_Date']);
-                        echo "<tr>";
-                        echo "<td>" . $_id . "</td>";
-                        echo "<td>" . htmlspecialchars($row['Medicine_Name']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['Med_Quantity']) . "</td>";
-                        if (htmlspecialchars($row['Expiration_Date']) <= $today) {
-                            echo "<td>" . "<span style='color:red'>EXPIRED</span>" . "</td>";
-                        } else {
-                            echo "<td>" . htmlspecialchars($row['Expiration_Date']) . "</td>";
-                        }
-                        echo "<td><span style='color: " .
-                            ($epx <= $today ? "red" : ($qty == 0 ? "orange" : "green")) . ";'>" .
-                            ($epx <= $today ? "Unavailable" : ($qty == 0 ? "Out of stocks" : "Available")) .
-                            "</span></td>";
+                        while ($row = $result->fetch_assoc()) {
+                            $_id = htmlspecialchars($row['id']);
+                            $qty = htmlspecialchars($row['Med_Quantity']);
 
 
 
+                            $epx = htmlspecialchars($row['Expiration_Date']);
+                            echo "<tr>";
+                            echo "<td>" . $_id . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Medicine_Name']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Med_Quantity']) . "</td>";
+                            if (htmlspecialchars($row['Expiration_Date']) <= $today) {
+                                echo "<td>" . "<span style='color:red'>EXPIRED</span>" . "</td>";
+                            } else {
+                                echo "<td>" . htmlspecialchars($row['Expiration_Date']) . "</td>";
+                            }
+                            echo "<td><span style='color: " .
+                                ($epx <= $today ? "red" : ($qty == 0 ? "orange" : "green")) . ";'>" .
+                                ($epx <= $today ? "Unavailable" : ($qty == 0 ? "Out of stocks" : "Available")) .
+                                "</span></td>";
 
-                        echo "<td>" . htmlspecialchars($row['issued']) . "</td>";
-                        echo "<td>" . "<form action='../../Controller/delete.php' method='POST'>
+
+
+
+                            echo "<td>" . htmlspecialchars($row['issued']) . "</td>";
+                            echo "<td>" . "<form action='../../Controller/delete.php' method='POST'>
                         <input type='hidden' name='id' value='" . $_id . "'>
                             
                         <button class='poppins flex gap-5 text-white px-3 py-3 rounded-lg uppercase cursor-pointer justify-evenly bg-red-500 ' type='submit' name='delete'><span '>Delete</span> <img src='../assets/icons/delete-icon.svg'></button>
                         </form> " . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr>";
+                        echo "<td colspan='9' class='text-center bg-[#d4d4d40c]'>" . "No Medicine Found." . "</td>";
                         echo "</tr>";
                     }
-                } else {
-                    echo "<tr>";
-                    echo "<td colspan='9' class='text-center bg-[#ffc5c541]'>" . "No Medicine Found." . "</td>";
-                    echo "</tr>";
+                } catch (mysqli_sql_exception $e) {
+                    echo "Error: " . $e->getMessage();
                 }
-            } catch (mysqli_sql_exception $e) {
-                echo "Error: " . $e->getMessage();
-            }
 
-            ?>
+                ?>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+
+    </div>
     <div id="blur" class="fixed  h-full backdrop-blur-xs top-[-20px] bg-white/30 z-0 w-full"></div>
 
     <div id="consumed-medicine" class="absolute top-1/4 w-[80%] right-1/8 shadow-xl z-10 p-5   bg-white">

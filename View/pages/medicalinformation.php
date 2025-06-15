@@ -12,15 +12,45 @@ include('../components/navbar.php');
 ?>
 
 
-<section class="overflow-x-hidden md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
 
-  <a class="flex bg-[#06118e] text-white poppins uppercase font-semibold  w-42 text-center py-2.5 px-3 rounded-lg m-5 justify-evenly text-[max(1vw,1rem)]" href="studentlist.php"><span>Back</span><img src="../assets/icons/back-icon.svg" alt="back-icon"></a>
+<section class="relative z-20 overflow-x-hidden md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
 
-  <section class="relative mt-5 text-[max(3vw,2rem)] ">
-    <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
+  <div id="bgFade" class="fixed w-full h-full -z-10  bg-[#5858582f] overflow-auto"></div>
+
+  <div class="flex relative">
+    <a class="flex bg-[#06118e]  text-white poppins uppercase font-semibold  w-42 text-center py-2.5 px-3 rounded-lg m-5 justify-evenly text-[max(1vw,1rem)]" href="studentlist.php"><span>Back</span><img class="size-6.5" src="../assets/icons/back-icon.svg" alt="back-icon"></a>
+    <form action="">
+      <!-- edit button -->
+      <div class="">
+        <button
+          id="editBtn"
+          class="border-1 poppins my-5 place-self-center mt-5 justify-center cursor-pointer  px-5 py-3 flex gap-x-3 rounded-lg">
+          <p>Edit</p>
+          <img class="invert size-5" src="../assets/icons/edit-icon.svg" alt="check-icon" />
+        </button>
+      </div>
+      <!-- save and cancel -->
+      <div id="actionBtn" class="flex gap-3.5 hidden">
+        <button
+          id="saveBtn"
+          type="submit"
+          class="bg-green-500 text-white poppins my-5 place-self-center mt-5 justify-center cursor-pointer  px-5 py-3 flex gap-x-3 rounded-lg">
+          <p>Save</p>
+        </button>
+        <button
+          id="cancelBtn"
+          class="bg-red-500 text-white poppins my-5 place-self-center mt-5 justify-center cursor-pointer  px-5 py-3 flex gap-x-3 rounded-lg">
+          <p>Cancel</p>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <section class="relative -z-20  mt-5 text-[max(3vw,2rem)] ">
+    <h1 class="poppins uppercase font-[500] bg-white ml-12  px-5 inline ">
       student information
     </h1>
-    <hr class="absolute z-[-1] text-[#acacac] top-1/2 w-full" />
+    <hr class="absolute -z-10 text-[#acacac] top-1/2 w-full" />
   </section>
 
   <?php
@@ -119,7 +149,7 @@ include('../components/navbar.php');
     <form action="../../Controller/medform.php" method="POST">
       <!-- form for student information........ -->
       <section
-        class="poppins flex flex-col md:flex-row md:flex-wrap gap-4 px-3 uppercase">
+        class="poppins my-7.5 flex flex-col md:flex-row md:flex-wrap gap-4 px-3 uppercase">
         <!-- namee of student -->
 
         <section class="flex">
@@ -293,7 +323,7 @@ include('../components/navbar.php');
       </section>
 
       <!--form for STUDENT MEDICAL HISTORY ........ -->
-      <section class="relative  my-5 text-[min(4vw,1.5rem)] ">
+      <section class="relative  -z-20  my-5 text-[min(4vw,1.5rem)] ">
         <h1 class="poppins uppercase font-[500] bg-white ml-12 px-5 inline z-20 ">
           MEDICAL HISTORY
         </h1>
@@ -513,10 +543,10 @@ include('../components/navbar.php');
             value="<?php echo $if_yes ?>"
             type="text" />
         </section>
-        <div class="relative w-full mt-5">
+        <div class="relative -z-20 w-full mt-5">
           <label
             id="label"
-            class=" inline top-[-10px] left-2 absolute px-5 bg-white text-nowrap mr-1 font-semibold uppercase"
+            class=" inline top-[-10px] left-2  absolute px-5 bg-white text-nowrap mr-1 font-semibold uppercase"
             for="chillhoodIllness">chillhood Illnesses</label>
           <select name="chillhoodIllness" id="chillhoodIllness" class="border-1 p-3.5 w-full">
             <option disabled selected value="" <?= empty($childhood_illness) ? 'selected' : '' ?> class="opacity-40 ">select Illnesses</option>
@@ -774,23 +804,43 @@ include('../components/navbar.php');
       <!-- SUBMIT BUTTON FOR MEDICAL FORM  -->
     </form>
   </fieldset>
-  <form action="../../Controller/download.php" method="POST">
+  <form class="" action="../../Controller/download.php" method="POST">
     <input type="hidden" name="id" value="<?php echo $id ?>">
     <button
 
       type="submit"
       name='download'
-      class="bg-primary poppins place-self-center mt-5 w-1/3 justify-center cursor-pointer text-white px-5 py-3 flex gap-x-3 rounded-lg">
+      class="bg-primary poppins my-5 place-self-center mt-5 w-1/5 justify-center cursor-pointer text-white px-5 py-3 flex gap-x-3 rounded-lg">
       <p>Download</p>
       <img src="../assets/icons/check-icon.svg" alt="check-icon" />
 
     </button>
-  </form>
 
+  </form>
 </section>
 
 
-
 </body>
+<script>
+  const edit = document.getElementById("editBtn")
+  const container = document.getElementById("actionBtn")
+  const cancel = document.getElementById("cancelBtn")
+  const fade = document.getElementById("bgFade")
+
+  edit.addEventListener("click", (e) => {
+    e.preventDefault()
+    edit.classList.add("hidden");
+    container.classList.remove("hidden");
+    fade.classList.remove("bg-[#5858582f]");
+
+  })
+
+  cancel.addEventListener("click", (e) => {
+    e.preventDefault()
+    edit.classList.remove("hidden");
+    container.classList.add("hidden");
+    fade.classList.add("bg-[#5858582f]");
+  })
+</script>
 
 </html>

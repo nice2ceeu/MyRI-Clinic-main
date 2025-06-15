@@ -56,9 +56,14 @@ include('../View/components/body.php');
                             echo "</tr>";
                         }
                     } else {
-                        echo "<script>alert('No User Found');
-                            window.location.href = '../view/pages/studentlist.php';
-                        </script>";
+                        echo
+
+
+                        session_start();
+                        $_SESSION['modal_title'] = 'Alert';
+                        $_SESSION['modal_message'] = 'No History found';
+                        header("Location: ../view/pages/studentlist.php");
+                        exit;
                     }
                 } catch (mysqli_sql_exception $e) {
                     echo "Error: " . $e->getMessage();

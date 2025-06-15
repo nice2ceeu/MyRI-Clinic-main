@@ -1,4 +1,18 @@
 <?php
+
+include("../../View/modal/alert.php");
+if (isset($_SESSION['modal_message'])) {
+  $msg = $_SESSION['modal_message'];
+  $title = $_SESSION['modal_title'] ?? 'Notice';
+
+  echo "<script>
+    document.getElementById('alertHeader').innerText = '$title';
+    showModal('$msg');
+  </script>";
+  unset($_SESSION['modal_message'], $_SESSION['modal_title']);
+}
+
+
 include('../components/body.php');
 ?>
 <main class="uppercase mt-22 px-8.5">
