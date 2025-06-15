@@ -240,7 +240,7 @@ include('../components/navbar.php');
                                 echo "<td>" .
                                     "<form action='../../Controller/resetpassword.php' method='POST'>
                                     <input type='hidden' name='id' value='$id'>
-                                    <button type='submit' name='reset'>RESET PASSWORD</button>
+                                    <button class='flex rounded-lg gap-5 px-3 py-2.5 bg-red-500 cursor-pointer text-white' type='submit' name='reset'>RESET PASSWORD</button>
                                 </form></td>";
                             }
 

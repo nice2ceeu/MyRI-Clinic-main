@@ -33,20 +33,27 @@ if (isset($_POST['reset-password'])) {
             $stmt = $conn->prepare("UPDATE admin SET password = ? WHERE id = ?");
             $stmt->execute([$hashed, $id]);
 
-            echo "<script>
-                alert('Password Successfully Changed!');
-                window.location.href = '../view/pages/userprofile.php';
-            </script>";
+            echo
+            session_start();
+            $_SESSION['modal_title'] = 'Success';
+            $_SESSION['modal_message'] = 'Password Successfully Changed!';
+            header("Location: ../view/pages/userprofile.php");
+            exit;
         } else {
-            echo "<script>
-                alert('Current Password does not match our records.');
-                window.location.href = '../view/pages/userprofile.php';
-            </script>";
+            echo
+
+            session_start();
+            $_SESSION['modal_title'] = 'Alert';
+            $_SESSION['modal_message'] = 'Current Password does not match our records.';
+            header("Location: ../view/pages/changepass.php");
+            exit;
         }
     } else {
-        echo "<script>
-            alert('Passwords must match and be longer than 8 characters.');
-            window.location.href = '../view/pages/userprofile.php';
-        </script>";
+        echo
+        session_start();
+        $_SESSION['modal_title'] = 'Alert';
+        $_SESSION['modal_message'] = 'Passwords must match and be longer than 8 characters.';
+        header("Location: ../view/pages/changepass.php");
+        exit;
     }
 }
