@@ -100,8 +100,7 @@ include('../components/body.php');
 
                 <hr class="text-[#f5f5f565]  w-full">
                 <a
-                    class="flex gap-x-4 px-3.5 uppercase py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start lg:items-center mt-3 hover:bg-[#ffffff1f]"
-                    href="../">
+                    class="flex gap-x-4 px-3.5 uppercase py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start lg:items-center mt-3 ">
                     <img class=" size-6 " src=" ../assets/icons/user-icon.svg" alt="visitor-icon" />
                     <div class="md:hidden lg:block flex flex-col">
                         <?php
