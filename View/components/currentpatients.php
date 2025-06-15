@@ -61,7 +61,8 @@ include("body.php")
             <?php
             // Fetch medicine options once
             $medOptions = "";
-            $query = "SELECT Medicine_Name FROM meds where Med_Quantity > 0";
+            $dateNow = date('Y-m-d');
+            $query = "SELECT Medicine_Name FROM meds where Med_Quantity > 0 AND Expiration_Date > '$dateNow'";
             $result = $conn->query($query);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
